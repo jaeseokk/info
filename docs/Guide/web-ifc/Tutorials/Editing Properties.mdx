@@ -92,7 +92,7 @@ async function getLevels() {
     if (lvl.Name.value === "Nivel 2") {
       lvl.LongName.value = "Level 2";
       ifcapi.WriteLine(modelID, lvl);
-      createDownloadLink(lvl);
+      createDownloadLink();
     }
   }
 }
@@ -155,7 +155,7 @@ So in order to return the name value we will have to refer to it as lvl.Name.val
 After processing all changes, we will create a new file and add a download link to the web page so the user can download the file
 
 ```js {8}
-function createDownloadLink(lvl) {
+function createDownloadLink() {
   const data = ifcapi.ExportFileAsIFC(modelID);
   const blob = new Blob([data]);
   const file = new File([blob], "modified.ifc");
